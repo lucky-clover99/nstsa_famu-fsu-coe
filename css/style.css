@@ -1,8 +1,16 @@
 
+/* =========================================
+   NSTSA Website Styles
+   ========================================= */
 
-/* NSTSA Website Styles */
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Zilla+Slab:wght@400;500;600;700&family=Averia+Serif+Libre:wght@400;700&display=swap');
 
-/* Official colors and reusable variables */
+
+/* =========================================
+   Colors and Variables
+   ========================================= */
+
 :root {
   --blue: #314775;
   --yellow: #f1cb72;
@@ -13,7 +21,11 @@
   --border: #dce1ea;
 }
 
-/* General styles */
+
+/* =========================================
+   General Styles
+   ========================================= */
+
 * {
   box-sizing: border-box;
 }
@@ -26,7 +38,10 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+
+  /* Zilla Slab for main text */
+  font-family: 'Zilla Slab', serif;
+  font-size: 17px;
   line-height: 1.6;
 }
 
@@ -44,92 +59,22 @@ img {
   display: block;
 }
 
-/* Layout container */
-.container {
-  width: min(1100px, 90%);
-  margin-inline: auto;
-}
 
-/* Navigation */
-.site-header {
-  background: var(--blue);
-  color: var(--white);
-}
+/* =========================================
+   Typography
+   ========================================= */
 
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  min-height: 78px;
-}
-
-.brand {
-  text-decoration: none;
-  font-size: 1.45rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
-
-.brand-atom {
-  color: var(--yellow);
-  font-size: 1.8rem;
-  vertical-align: -2px;
-  margin-right: 6px;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 18px;
-  align-items: center;
-}
-
-.nav-links a {
-  color: var(--white);
-  text-decoration: none;
-  font-size: 0.95rem;
-  padding: 7px 0;
-  border-bottom: 3px solid transparent;
-}
-
-.nav-links a:hover,
-.nav-links a[aria-current="page"] {
-  color: var(--yellow);
-  border-bottom-color: var(--yellow);
-}
-
-/* Homepage introduction */
-.hero {
-  background: var(--blue);
-  color: var(--white);
-  padding: 70px 0 84px;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 60px;
-}
-
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
-  font-weight: bold;
-  font-size: 0.78rem;
-  color: var(--yellow);
-}
-
-/* Headings */
-h1, h2, h3, p {
+/* Fredoka for headings */
+h1, h2, h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
   margin-top: 0;
 }
 
 h1 {
   font-size: clamp(2.4rem, 5vw, 4.15rem);
   line-height: 1.13;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   margin-bottom: 20px;
 }
 
@@ -144,13 +89,113 @@ h3 {
   margin-bottom: 8px;
 }
 
+p {
+  margin-top: 0;
+}
+
+/* Averia Serif Libre for smaller labels */
+.eyebrow {
+  font-family: 'Averia Serif Libre', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--yellow);
+}
+
+
+/* =========================================
+   Layout Container
+   ========================================= */
+
+.container {
+  width: min(1100px, 90%);
+  margin-inline: auto;
+}
+
+
+/* =========================================
+   Navigation Bar
+   ========================================= */
+
+.site-header {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 78px;
+}
+
+/* NSTSA logo text */
+.brand {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.brand-atom {
+  color: var(--yellow);
+  font-size: 1.8rem;
+  vertical-align: -2px;
+  margin-right: 6px;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: 'Averia Serif Libre', serif;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 7px 0;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--yellow);
+  border-bottom-color: var(--yellow);
+}
+
+
+/* =========================================
+   Homepage Hero Section
+   ========================================= */
+
+.hero {
+  background: var(--blue);
+  color: var(--white);
+  padding: 70px 0 84px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+}
+
 .hero p:not(.eyebrow) {
   max-width: 540px;
   color: #e8ecf3;
-  font-size: 1.06rem;
+  font-size: 1.1rem;
 }
 
-/* Hero image */
+/* Homepage logo/image */
 .hero-photo {
   background: #214779;
   border-radius: 16px;
@@ -162,7 +207,11 @@ h3 {
   width: 100%;
 }
 
-/* Buttons */
+
+/* =========================================
+   Buttons
+   ========================================= */
+
 .hero-actions {
   display: flex;
   gap: 12px;
@@ -175,8 +224,14 @@ h3 {
   border-radius: 8px;
   padding: 11px 19px;
   text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.15s ease, filter 0.15s ease;
+
+  /* Fredoka for buttons */
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+
+  transition: transform 0.15s ease,
+              filter 0.15s ease;
 }
 
 .button:hover {
@@ -199,7 +254,11 @@ h3 {
   color: var(--white);
 }
 
-/* General sections */
+
+/* =========================================
+   Main Sections
+   ========================================= */
+
 .section {
   padding: 70px 0;
 }
@@ -228,7 +287,11 @@ h3 {
   color: var(--muted);
 }
 
-/* Grid layouts */
+
+/* =========================================
+   Grid Layouts
+   ========================================= */
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -241,7 +304,11 @@ h3 {
   gap: 22px;
 }
 
-/* Cards */
+
+/* =========================================
+   Cards
+   ========================================= */
+
 .card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -279,11 +346,24 @@ h3 {
   font-weight: bold;
 }
 
-/* Photos */
+.text-link:hover {
+  color: #5675ae;
+}
+
+
+/* =========================================
+   Homepage Photo Cards
+   ========================================= */
+
 .photo-placeholder {
   min-height: 185px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #e4eaf3, #cfd9e8);
+  background: linear-gradient(
+    135deg,
+    #e4eaf3,
+    #cfd9e8
+  );
+
   display: grid;
   place-items: center;
   text-align: center;
@@ -302,10 +382,14 @@ h3 {
 
 .note {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
 }
 
-/* Collaboration section */
+
+/* =========================================
+   Collaboration Section
+   ========================================= */
+
 .cta {
   background: var(--blue);
   color: var(--white);
@@ -330,7 +414,11 @@ h3 {
   max-width: 690px;
 }
 
-/* Footer */
+
+/* =========================================
+   Footer
+   ========================================= */
+
 .site-footer {
   padding: 30px 0;
   background: #253958;
@@ -347,14 +435,18 @@ h3 {
 
 .footer-inner p {
   margin: 0;
-  font-size: 0.87rem;
+  font-size: 0.95rem;
 }
 
 .footer-inner a {
   color: var(--yellow);
 }
 
-/* Headings for other pages */
+
+/* =========================================
+   Other Page Headings
+   ========================================= */
+
 .page-hero {
   background: var(--blue);
   color: var(--white);
@@ -371,7 +463,11 @@ h3 {
   font-size: clamp(2.2rem, 5vw, 3.4rem);
 }
 
-/* Events page */
+
+/* =========================================
+   Events Page
+   ========================================= */
+
 .event-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -396,13 +492,18 @@ h3 {
 .event-list {
   max-height: 350px;
   overflow-y: auto;
+  padding-right: 5px;
 }
 
 .event-list .card {
   margin-bottom: 12px;
 }
 
-/* E-Board page */
+
+/* =========================================
+   Executive Board Page
+   ========================================= */
+
 .officer-avatar {
   background: #e4eaf3;
   border-radius: 10px;
@@ -412,7 +513,19 @@ h3 {
   color: #51668d;
 }
 
-/* Mobile responsiveness */
+.officer-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+
+/* =========================================
+   Mobile Responsiveness
+   ========================================= */
+
 @media (max-width: 760px) {
 
   .navbar {
@@ -427,7 +540,7 @@ h3 {
   }
 
   .nav-links a {
-    font-size: 0.86rem;
+    font-size: 0.9rem;
   }
 
   .hero {
@@ -452,4 +565,9 @@ h3 {
   .section {
     padding: 48px 0;
   }
+
+  .cta-inner {
+    align-items: flex-start;
+  }
 }
+
