@@ -619,4 +619,114 @@ p {
   }
 }
 
+/* =========================================
+   Homepage Layout Improvements
+   ========================================= */
+
+/* Reduce empty space above the homepage */
+.hero {
+  padding: 30px 0 60px;
+}
+
+/* Wider left section and smaller right section */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 0.65fr);
+  gap: 40px;
+  align-items: start;
+}
+
+/* Wide rectangular GIF container */
+.hero-content {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: 28px 32px;
+  min-height: 340px;
+
+  border-radius: 14px;
+}
+
+/* Make heading smaller to reduce wrapping */
+.hero-content h1 {
+  font-size: clamp(2.2rem, 3.5vw, 3.1rem);
+  line-height: 1.12;
+  margin-bottom: 14px;
+}
+
+/* Make description slightly more compact */
+.hero-content p:not(.eyebrow) {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Reduce space above buttons */
+.hero-content .hero-actions {
+  margin-top: 18px;
+}
+
+/* Animated GIF background */
+.hero-content::before {
+  inset: 0;
+  border-radius: inherit;
+
+  opacity: 0.8;
+
+  /* Fade animation toward the right edge */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 65%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 65%,
+    transparent 100%
+  );
+}
+
+/* Smaller logo, aligned under navigation */
+.hero-photo {
+  width: min(100%, 320px);
+  justify-self: end;
+  align-self: start;
+
+  margin-top: 0;
+  padding: 12px;
+
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.hero-photo img {
+  width: 100%;
+}
+
+/* Mobile layout */
+@media (max-width: 760px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .hero-content {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  .hero-photo {
+    justify-self: center;
+    width: min(100%, 280px);
+  }
+}
+
 
