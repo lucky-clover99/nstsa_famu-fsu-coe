@@ -12,7 +12,8 @@
    ========================================= */
 
 :root {
-  --blue: #314775;
+  --blue: #465D85;
+  --logo-blue: #214779;
   --yellow: #f1cb72;
   --cream: #faf8f2;
   --white: #ffffff;
@@ -131,7 +132,7 @@ p {
   min-height: 78px;
 }
 
-/* NSTSA logo text */
+/* NSTSA branding */
 .brand {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.6rem;
@@ -197,7 +198,7 @@ p {
 
 /* Homepage logo/image */
 .hero-photo {
-  background: #214779;
+  background: var(--logo-blue);
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0 18px 38px #172a502e;
