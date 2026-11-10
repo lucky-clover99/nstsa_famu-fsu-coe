@@ -569,6 +569,52 @@ p {
 
   .cta-inner {
     align-items: flex-start;
+     
+/* =========================================
+   Animated Homepage Background
+   ========================================= */
+
+/* Container for the heading and buttons */
+.hero-content {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 35px;
+  border-radius: 14px;
+}
+
+/* GIF background layer */
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(8, 12, 27, 0.40),
+      rgba(8, 12, 27, 0.40)
+    ),
+    url('../assets/hero-background.gif');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Mirror the GIF horizontally */
+  transform: scaleX(-1);
+
+  /* Keep GIF behind the text */
+  z-index: -1;
+}
+
+/* Hide motion for visitors who request reduced animation */
+@media (prefers-reduced-motion: reduce) {
+  .hero-content::before {
+    background-image: linear-gradient(
+      rgba(8, 12, 27, 0.9),
+      rgba(8, 12, 27, 0.9)
+    );
   }
 }
+
 
