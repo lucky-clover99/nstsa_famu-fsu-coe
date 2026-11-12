@@ -542,11 +542,11 @@ p {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-
-  padding: 26px 30px;
+  width: min(100%, 980px);
   min-height: 360px;
-
+  padding: 26px 30px 28px;
   border-radius: 14px;
+  margin: 0 auto;
 }
 
 /* Animated, mirrored GIF */
@@ -729,6 +729,7 @@ p {
   grid-template-columns: 1fr;
   gap: 0;
   align-items: start;
+  justify-items: center;
 }
 
 /* hide the old right-side logo box */
