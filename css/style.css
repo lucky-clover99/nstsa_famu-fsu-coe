@@ -273,4 +273,25 @@ h3 { font-size: 1.18rem; margin-bottom: 9px; }
   .hero-content::before { background-image: none; background-color: #17243c; }
 }
 
+/* =========================================
+   Homepage Width and Logo Improvements
+   ========================================= */
+
+/* Make the GIF panel wider and keep it centered */
+.hero-content {
+  width: min(100%, 1100px);
+  min-height: 330px;
+  margin-inline: auto;
+}
+
+/* Allow the hero layout to use available width */
+.hero-grid {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+/* Round the corners of the header logo */
+.brand img {
+  border-radius: 12px;
+}
 
