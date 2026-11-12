@@ -89,7 +89,7 @@ h3 { font-size: 1.18rem; margin-bottom: 9px; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; }
 .hero-photo { display: none; } /* Logo now lives in header */
 .hero-content {
-  width: min(100%, 1050px);
+  width: min(100%, 1100px);
   min-height: 350px;
   margin-inline: auto;
   padding: clamp(24px, 3.5vw, 40px);
