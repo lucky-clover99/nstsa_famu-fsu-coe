@@ -1,12 +1,15 @@
+
 /* =====================================================
-   NSTSA WEBSITE — CLEAN STYLESHEET
-   Branding: #314775 (official blue), #f1cb72 (yellow)
-   Website blue: #465D85
+   NSTSA WEBSITE STYLES
    ===================================================== */
 
-/* Fonts: Blinker for large titles, Fredoka for sections/buttons,
-   Zilla Slab for body text, Averia Serif Libre for navigation. */
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Blinker:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Zilla+Slab:wght@400;500;600;700&display=swap');
+
+
+/* =========================================
+   1. COLORS AND VARIABLES
+   ========================================= */
 
 :root {
   --blue: #465D85;
@@ -21,9 +24,19 @@
   --content-width: 1180px;
 }
 
-/* 1. BASE */
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+/* =========================================
+   2. GENERAL STYLES AND TYPOGRAPHY
+   ========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   color: var(--text);
@@ -32,24 +45,70 @@ body {
   font-size: 17px;
   line-height: 1.6;
 }
-img { display: block; max-width: 100%; }
-a { color: inherit; }
-a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
-p { margin-top: 0; }
-h1, h2, h3 { margin-top: 0; }
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 4px;
+}
+
+p {
+  margin-top: 0;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+/* Blinker for main page titles */
 h1 {
   font-family: 'Blinker', 'Arial Narrow', sans-serif;
   font-weight: 700;
   letter-spacing: 0.005em;
   line-height: 1.04;
 }
-h2, h3 { font-family: 'Fredoka', Arial, sans-serif; font-weight: 600; line-height: 1.2; }
-h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 12px; }
-h3 { font-size: 1.18rem; margin-bottom: 9px; }
-.container { width: min(var(--content-width), 92%); margin-inline: auto; }
 
-/* 2. HEADER AND NAVIGATION */
-.site-header { background: var(--blue); color: var(--white); }
+/* Fredoka for section headings */
+h2, h3 {
+  font-family: 'Fredoka', Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  margin-bottom: 12px;
+}
+
+h3 {
+  font-size: 1.18rem;
+  margin-bottom: 9px;
+}
+
+/* General content width */
+.container {
+  width: min(var(--content-width), 92%);
+  margin-inline: auto;
+}
+
+
+/* =========================================
+   3. HEADER AND NAVIGATION
+   ========================================= */
+
+.site-header {
+  background: var(--blue);
+  color: var(--white);
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -58,6 +117,8 @@ h3 { font-size: 1.18rem; margin-bottom: 9px; }
   min-height: 75px;
   padding-block: 9px;
 }
+
+/* NSTSA branding */
 .brand {
   display: inline-flex;
   align-items: center;
@@ -65,11 +126,31 @@ h3 { font-size: 1.18rem; margin-bottom: 9px; }
   gap: 6px;
   color: var(--white);
   text-decoration: none;
+
   font: 700 1.55rem/1.1 'Fredoka', Arial, sans-serif;
 }
-.brand-atom { color: var(--yellow); font-size: 1.65rem; }
-.brand img { display: block; width: 165px; height: auto; }
-.nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 19px; }
+
+.brand-atom {
+  color: var(--yellow);
+  font-size: 1.65rem;
+}
+
+/* NSTSA logo in top-left corner */
+.brand img {
+  display: block;
+  width: 165px;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 19px;
+}
+
 .nav-links a {
   font-family: 'Averia Serif Libre', Georgia, serif;
   font-size: 1rem;
@@ -77,96 +158,206 @@ h3 { font-size: 1.18rem; margin-bottom: 9px; }
   text-decoration: none;
   padding: 5px 0;
   border-bottom: 3px solid transparent;
-  transition: color .2s ease, border-color .2s ease;
+
+  transition: color 0.2s ease,
+              border-color 0.2s ease;
 }
-.nav-links a:hover, .nav-links a[aria-current='page'] {
+
+.nav-links a:hover,
+.nav-links a[aria-current='page'] {
   color: var(--yellow);
   border-bottom-color: var(--yellow);
 }
 
-/* 3. HOMEPAGE HERO — WIDE CENTERED GIF */
-.hero { background: var(--blue); color: var(--white); padding: 12px 0 38px; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; }
-.hero-photo { display: none; } /* Logo now lives in header */
+
+/* =========================================
+   4. HOMEPAGE HERO SECTION
+   ========================================= */
+
+.hero {
+  background: var(--blue);
+  color: var(--white);
+  padding: 12px 0 38px;
+}
+
+/* Give homepage more width than other pages */
+.hero .container {
+  width: min(1320px, 96%);
+}
+
+/* Center the animated GIF area */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+/* Hide original second logo box */
+.hero-photo {
+  display: none;
+}
+
+/* Main animated background container */
 .hero-content {
-  width: min(100%, 1100px);
-  min-height: 350px;
+  width: min(100%, 1240px);
+  min-height: 330px;
   margin-inline: auto;
   padding: clamp(24px, 3.5vw, 40px);
+
   position: relative;
   isolation: isolate;
   overflow: hidden;
+
   border-radius: 15px;
   background: #131e31;
 }
+
+/* Mirrored particle-track GIF */
 .hero-content::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
+
   background-image:
-    linear-gradient(rgba(9, 15, 30, 0.40), rgba(9, 15, 30, 0.40)),
+    linear-gradient(
+      rgba(9, 15, 30, 0.40),
+      rgba(9, 15, 30, 0.40)
+    ),
     url('../assets/hero-background.gif');
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transform: scaleX(-1); /* Mirror only the animation */
+
+  /* Flip only the animation */
+  transform: scaleX(-1);
 }
-.hero-content > * { position: relative; z-index: 1; }
+
+/* Keep text above animation */
+.hero-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Small label above main heading */
 .eyebrow {
   font-family: 'Averia Serif Libre', Georgia, serif;
-  font-size: .83rem;
+  font-size: 0.83rem;
   font-weight: 700;
-  letter-spacing: .14em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+
   color: var(--yellow);
   margin-bottom: 16px;
 }
+
+/* Main heading - Blinker */
 .hero-content h1 {
-  max-width: 920px;
+  max-width: 1050px;
+  font-family: 'Blinker', 'Arial Narrow', sans-serif;
   font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 700;
   line-height: 1.03;
   margin-bottom: 18px;
   color: var(--white);
-  text-shadow: 0 2px 14px rgba(0,0,0,.32);
+
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.32);
 }
+
+/* Hero description */
 .hero-content p:not(.eyebrow) {
-  max-width: 680px;
+  max-width: 760px;
   color: #f0f2f7;
   font-size: 1.07rem;
   line-height: 1.5;
-  text-shadow: 0 1px 6px rgba(0,0,0,.4);
-}
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 
-/* 4. BUTTONS AND LINKS */
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.40);
+}
+
+/* Homepage buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+
+/* =========================================
+   5. BUTTONS AND LINKS
+   ========================================= */
+
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   padding: 11px 20px;
   border-radius: 8px;
   text-decoration: none;
-  font: 500 1rem/1.35 'Fredoka', Arial, sans-serif;
-  transition: transform .15s ease, filter .15s ease;
+
+  font-family: 'Fredoka', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+
+  transition: transform 0.15s ease,
+              filter 0.15s ease;
 }
-.button:hover { transform: translateY(-2px); filter: brightness(.98); }
-.button-yellow { color: #283958; background: var(--yellow); }
-.button-outline { color: var(--white); border: 1px solid #afbed6; background: rgba(10,20,40,.15); }
-.button-blue { color: var(--white); background: var(--club-blue); }
+
+.button:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.98);
+}
+
+.button-yellow {
+  color: #283958;
+  background: var(--yellow);
+}
+
+.button-outline {
+  color: var(--white);
+  border: 1px solid #afbed6;
+  background: rgba(10, 20, 40, 0.15);
+}
+
+.button-blue {
+  color: var(--white);
+  background: var(--club-blue);
+}
+
 .text-link {
   color: var(--club-blue);
   font-weight: 700;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
-.text-link:hover { color: #5675ae; }
 
-/* 5. MAIN PAGE SECTIONS */
-.section { padding: 62px 0; }
-.section-white { background: var(--white); }
-.section-intro { max-width: 670px; margin-bottom: 28px; color: var(--muted); }
+.text-link:hover {
+  color: #5675ae;
+}
+
+
+/* =========================================
+   6. MAIN PAGE SECTIONS
+   ========================================= */
+
+.section {
+  padding: 62px 0;
+}
+
+.section-white {
+  background: var(--white);
+}
+
+.section-intro {
+  max-width: 670px;
+  margin-bottom: 28px;
+  color: var(--muted);
+}
+
 .section-heading {
   display: flex;
   justify-content: space-between;
@@ -175,123 +366,330 @@ h3 { font-size: 1.18rem; margin-bottom: 9px; }
   gap: 16px;
   margin-bottom: 26px;
 }
-.section-heading p { margin-bottom: 0; color: var(--muted); }
-.two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-.card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-.card { padding: 26px; background: var(--white); border: 1px solid var(--border); border-radius: 14px; }
-.card p:last-child { margin-bottom: 0; }
+
+.section-heading p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+/* Two-column layout */
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* Three-column layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+
+/* =========================================
+   7. CARDS
+   ========================================= */
+
+.card {
+  padding: 26px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
 .card-icon {
   display: inline-grid;
   place-items: center;
+
   width: 46px;
   height: 46px;
   margin-bottom: 16px;
+
   background: #fbefd5;
   border-radius: 12px;
   font-size: 1.4rem;
 }
-.details { margin-bottom: 12px; }
-.details strong { color: var(--club-blue); }
-.note { color: var(--muted); font-size: .94rem; }
 
-/* 6. PHOTO PLACEHOLDERS / GALLERY */
+.details {
+  margin-bottom: 12px;
+}
+
+.details strong {
+  color: var(--club-blue);
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+
+/* =========================================
+   8. PHOTO PLACEHOLDERS AND GALLERY
+   ========================================= */
+
 .photo-placeholder {
   display: grid;
   place-items: center;
+
   min-height: 185px;
   padding: 20px;
   text-align: center;
   color: var(--club-blue);
+
   border-radius: 12px;
-  background: linear-gradient(135deg, #e4eaf3, #cfd9e8);
+  background: linear-gradient(
+    135deg,
+    #e4eaf3,
+    #cfd9e8
+  );
 }
-.photo-card { padding: 10px 10px 20px; }
-.photo-card h3 { padding: 14px 10px 0; margin-bottom: 0; }
 
-/* 7. COLLABORATION AND FOOTER */
-.cta { background: var(--club-blue); color: var(--white); padding: 46px 0; }
-.cta-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
-.cta h2 { margin-bottom: 10px; }
-.cta p { max-width: 690px; margin-bottom: 0; color: #e6ebf5; }
-.site-footer { padding: 28px 0; background: #253958; color: #edf0f6; }
-.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
-.footer-inner p { margin: 0; font-size: .95rem; }
-.footer-inner a { color: var(--yellow); }
+.photo-card {
+  padding: 10px 10px 20px;
+}
 
-/* 8. OTHER PAGES */
-.page-hero { background: var(--blue); color: var(--white); padding: 48px 0; }
-.page-hero h1 { font-size: clamp(2.3rem, 4.5vw, 3.6rem); margin: 0 0 12px; }
-.page-hero p { max-width: 660px; margin-bottom: 0; color: #e8ecf3; }
-.event-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; }
+.photo-card h3 {
+  padding: 14px 10px 0;
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   9. COLLABORATION SECTION
+   ========================================= */
+
+.cta {
+  background: var(--club-blue);
+  color: var(--white);
+  padding: 46px 0;
+}
+
+.cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.cta h2 {
+  margin-bottom: 10px;
+}
+
+.cta p {
+  max-width: 690px;
+  margin-bottom: 0;
+  color: #e6ebf5;
+}
+
+
+/* =========================================
+   10. FOOTER
+   ========================================= */
+
+.site-footer {
+  padding: 28px 0;
+  background: #253958;
+  color: #edf0f6;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-inner p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.footer-inner a {
+  color: var(--yellow);
+}
+
+
+/* =========================================
+   11. OTHER PAGE HEADINGS
+   ========================================= */
+
+.page-hero {
+  background: var(--blue);
+  color: var(--white);
+  padding: 48px 0;
+}
+
+.page-hero h1 {
+  font-size: clamp(2.3rem, 4.5vw, 3.6rem);
+  margin: 0 0 12px;
+}
+
+.page-hero p {
+  max-width: 660px;
+  margin-bottom: 0;
+  color: #e8ecf3;
+}
+
+
+/* =========================================
+   12. EVENTS PAGE
+   ========================================= */
+
+.event-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+}
+
 .calendar-placeholder {
   display: grid;
   place-content: center;
+
   min-height: 350px;
   padding: 35px;
+
   border: 2px dashed #bfcbe0;
   border-radius: 12px;
   background: #eef1f7;
   text-align: center;
 }
-.calendar-placeholder span { font-size: 3rem; }
-.event-list { max-height: 350px; overflow-y: auto; padding-right: 5px; }
-.event-list .card { margin-bottom: 12px; }
+
+.calendar-placeholder span {
+  font-size: 3rem;
+}
+
+/* Scrollable upcoming events */
+.event-list {
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.event-list .card {
+  margin-bottom: 12px;
+}
+
+
+/* =========================================
+   13. EXECUTIVE BOARD PAGE
+   ========================================= */
+
 .officer-avatar {
   display: grid;
   place-items: center;
+
   min-height: 140px;
   background: #e4eaf3;
   border-radius: 10px;
   color: #51668d;
 }
-.officer-photo { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 16px; }
 
-/* 9. TABLET AND MOBILE */
-@media (max-width: 800px) {
-  .navbar { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .nav-links { gap: 4px 15px; }
-  .hero { padding: 12px 0 32px; }
-  .hero-content { min-height: auto; padding: 28px; }
-  .hero-content h1 { font-size: clamp(2.2rem, 6vw, 3.25rem); }
-  .event-layout, .two-col { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .brand img { width: 145px; }
-  .nav-links a { font-size: .92rem; }
-  .hero-content { padding: 22px; border-radius: 12px; }
-  .hero-content h1 { font-size: clamp(2rem, 9vw, 2.7rem); }
-  .hero-content p:not(.eyebrow) { font-size: 1rem; }
-  .card-grid { grid-template-columns: 1fr; }
-  .section { padding: 46px 0; }
-  .page-hero { padding: 38px 0; }
+.officer-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 16px;
 }
 
-/* 10. ACCESSIBILITY */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .button { transition: none; }
-  .hero-content::before { background-image: none; background-color: #17243c; }
-}
 
 /* =========================================
-   Homepage Width and Logo Improvements
+   14. TABLET AND MOBILE
    ========================================= */
 
-/* Make the GIF panel wider and keep it centered */
-.hero-content {
-  width: min(100%, 1100px);
-  min-height: 330px;
-  margin-inline: auto;
+@media (max-width: 800px) {
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    gap: 4px 15px;
+  }
+
+  .hero {
+    padding: 12px 0 32px;
+  }
+
+  .hero-content {
+    min-height: auto;
+    padding: 28px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.2rem, 6vw, 3.25rem);
+  }
+
+  .event-layout,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Allow the hero layout to use available width */
-.hero-grid {
-  grid-template-columns: minmax(0, 1fr);
-  justify-items: center;
+@media (max-width: 560px) {
+
+  .brand img {
+    width: 145px;
+  }
+
+  .nav-links a {
+    font-size: 0.92rem;
+  }
+
+  .hero-content {
+    padding: 22px;
+    border-radius: 12px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 9vw, 2.7rem);
+  }
+
+  .hero-content p:not(.eyebrow) {
+    font-size: 1rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 46px 0;
+  }
+
+  .page-hero {
+    padding: 38px 0;
+  }
 }
 
-/* Round the corners of the header logo */
-.brand img {
-  border-radius: 12px;
+
+/* =========================================
+   15. ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .button {
+    transition: none;
+  }
+
+  .hero-content::before {
+    background-image: none;
+    background-color: #17243c;
+  }
 }
 
