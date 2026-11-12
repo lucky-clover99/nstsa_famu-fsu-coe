@@ -679,4 +679,155 @@ p {
   }
 }
 
+/* =========================================
+   Homepage layout update
+   ========================================= */
+
+/* slightly wider site area */
+.container {
+  width: min(1180px, 92%);
+}
+
+/* make the top/header area a little shorter */
+.site-header {
+  background: var(--blue);
+}
+
+.navbar {
+  min-height: 64px;
+  padding: 10px 0 6px;
+  align-items: flex-start;
+}
+
+/* logo in header */
+.brand {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 0;
+  font-size: 0;
+}
+
+.brand img {
+  display: block;
+  width: 165px;
+  height: auto;
+}
+
+/* if old atom/text is still there anywhere */
+.brand-atom {
+  display: none;
+}
+
+/* reduce the space above the hero area */
+.hero {
+  padding: 6px 0 38px;
+}
+
+/* make hero a single-column layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+/* hide the old right-side logo box */
+.hero-photo {
+  display: none;
+}
+
+/* wider, more rectangular main gif panel */
+.hero-content {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: min(100%, 820px);
+  min-height: 360px;
+  padding: 26px 30px 28px;
+  border-radius: 14px;
+}
+
+/* gif background */
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(8, 12, 27, 0.28),
+      rgba(8, 12, 27, 0.28)
+    ),
+    url('../assets/hero-background.gif');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: scaleX(-1);
+  opacity: 0.95;
+}
+
+/* keep text above gif */
+.hero-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* heading a bit tighter so it fits better */
+.hero-content h1 {
+  max-width: 720px;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.08;
+  margin-bottom: 18px;
+}
+
+/* paragraph width */
+.hero p:not(.eyebrow) {
+  max-width: 620px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* keep the buttons a little tighter */
+.hero-actions {
+  margin-top: 18px;
+}
+
+/* mobile */
+@media (max-width: 760px) {
+  .container {
+    width: min(100%, 92%);
+  }
+
+  .navbar {
+    padding: 12px 0;
+    min-height: auto;
+  }
+
+  .brand img {
+    width: 140px;
+  }
+
+  .hero {
+    padding: 10px 0 40px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    width: 100%;
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .hero-content h1 {
+    max-width: none;
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+}
 
