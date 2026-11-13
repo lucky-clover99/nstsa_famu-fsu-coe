@@ -696,3 +696,27 @@ h3 {
     background-color: #17243c;
   }
 }
+
+/* =========================================
+   Prevent White Space When Overscrolling
+   ========================================= */
+
+/* Match the background behind the page */
+html {
+  background-color: var(--blue);
+  overscroll-behavior-y: none;
+}
+
+/* Make the page fill the screen */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep the footer at the bottom */
+main {
+  flex: 1;
+}
+
