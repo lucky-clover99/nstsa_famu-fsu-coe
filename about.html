@@ -1,21 +1,29 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <meta
+    name="description"
+    content="Learn about the mission and goals of the Nuclear Science and Technology Student Association (NSTSA)."
+  >
+
   <title>About NSTSA | NSTSA</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="css/style.css?v=16">
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container navbar">
 
-      <a class="brand" href="index.html">
-        <span class="brand-atom" aria-hidden="true">⚛</span>NSTSA
+      <a class="brand brand-image" href="index.html">
+        <img src="assets/nstsa-logo.png" alt="NSTSA logo">
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
@@ -30,53 +38,140 @@
     </div>
   </header>
 
+
+  <!-- MAIN CONTENT -->
   <main>
 
+    <!-- PAGE HEADING -->
     <section class="page-hero">
       <div class="container">
+
         <h1>About NSTSA</h1>
 
         <p>
-          Learn about our student organization
-          at the FAMU–FSU College of Engineering.
+          Learn about the Nuclear Science and Technology Student
+          Association at the FAMU–FSU College of Engineering.
         </p>
+
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
 
-        <div class="two-col">
+    <!-- MISSION AND GOALS -->
+    <section class="section section-white">
+      <div class="container about-content">
 
-          <article class="card">
-            <h2>Who We Are</h2>
+        <h2>Our Mission &amp; Goals</h2>
+
+        <p class="section-intro">
+          Bringing students together through shared interests
+          in nuclear science, technology, industry, and research.
+        </p>
+
+
+        <!-- INTERACTIVE TABS -->
+        <div class="about-tabs-card">
+
+          <div
+            class="about-tab-list"
+            role="tablist"
+            aria-label="Mission and goals"
+          >
+
+            <button
+              type="button"
+              class="about-tab"
+              id="mission-tab"
+              role="tab"
+              aria-selected="true"
+              aria-controls="mission-panel"
+              tabindex="0"
+            >
+              Mission
+            </button>
+
+            <button
+              type="button"
+              class="about-tab"
+              id="goals-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="goals-panel"
+              tabindex="-1"
+            >
+              Goals
+            </button>
+
+          </div>
+
+
+          <!-- MISSION CONTENT -->
+          <div
+            id="mission-panel"
+            class="about-tab-panel"
+            role="tabpanel"
+            aria-labelledby="mission-tab"
+            tabindex="0"
+          >
 
             <p>
-              NSTSA stands for the Nuclear Science
-              and Technology Student Association.
+              Our mission is to provide opportunities for students
+              from all disciplines to express their interest in
+              nuclear industry and research. We aim to achieve this
+              through academic, professional, and community-focused
+              activities while encouraging collaboration amongst
+              students with a shared interest in nuclear industry
+              and research.
             </p>
 
-            <p class="note">
-              Add the club's official mission statement
-              and history here once approved by the E-Board.
-            </p>
-          </article>
+          </div>
 
-          <article class="card">
+
+          <!-- GOALS CONTENT -->
+          <div
+            id="goals-panel"
+            class="about-tab-panel"
+            role="tabpanel"
+            aria-labelledby="goals-tab"
+            tabindex="0"
+            hidden
+          >
+
+            <p>
+              The Nuclear Science and Technology Student Association
+              (NSTSA) aims to host monthly meetings, provide an
+              audience for industry speakers, participate in
+              volunteering, and visit nuclear related sites for tours.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- GET INVOLVED SECTION -->
+        <div class="about-join card">
+
+          <div>
+
             <h2>Get Involved</h2>
 
             <p>
-              Interested in learning more or
-              connecting with members?
+              Interested in nuclear science and technology,
+              or just curious to learn more? Connect with NSTSA
+              and keep up with club news and opportunities.
             </p>
 
-            <a class="button button-blue"
-               href="https://linktr.ee/nstsa"
-               target="_blank"
-               rel="noopener noreferrer">
-              Visit Our Linktree ↗
-            </a>
-          </article>
+          </div>
+
+          <a
+            class="button button-blue"
+            href="https://linktr.ee/nstsa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Connect with NSTSA ↗
+          </a>
 
         </div>
 
@@ -85,22 +180,99 @@
 
   </main>
 
+
+  <!-- FOOTER -->
   <footer class="site-footer">
+
     <div class="container footer-inner">
 
       <p>NSTSA · FAMU–FSU College of Engineering</p>
 
       <p>
-        <a href="https://linktr.ee/nstsa"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a
+          href="https://linktr.ee/nstsa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Socials &amp; Community Links ↗
         </a>
       </p>
 
     </div>
+
   </footer>
+
+
+  <!-- MISSION AND GOALS TAB FUNCTIONALITY -->
+  <script>
+
+    const tabs = Array.from(
+      document.querySelectorAll('.about-tab')
+    );
+
+    const panels = Array.from(
+      document.querySelectorAll('.about-tab-panel')
+    );
+
+    function activateTab(activeTab) {
+
+      tabs.forEach(tab => {
+        const selected = tab === activeTab;
+
+        tab.setAttribute(
+          'aria-selected',
+          String(selected)
+        );
+
+        tab.tabIndex = selected ? 0 : -1;
+      });
+
+      panels.forEach(panel => {
+        panel.hidden =
+          panel.id !== activeTab.getAttribute('aria-controls');
+      });
+    }
+
+    tabs.forEach((tab, index) => {
+
+      tab.addEventListener('click', () => {
+        activateTab(tab);
+      });
+
+      tab.addEventListener('keydown', event => {
+
+        let nextIndex;
+
+        if (event.key === 'ArrowRight') {
+          nextIndex = (index + 1) % tabs.length;
+        }
+
+        else if (event.key === 'ArrowLeft') {
+          nextIndex = (index - 1 + tabs.length) % tabs.length;
+        }
+
+        else if (event.key === 'Home') {
+          nextIndex = 0;
+        }
+
+        else if (event.key === 'End') {
+          nextIndex = tabs.length - 1;
+        }
+
+        else {
+          return;
+        }
+
+        event.preventDefault();
+
+        activateTab(tabs[nextIndex]);
+        tabs[nextIndex].focus();
+
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
-
